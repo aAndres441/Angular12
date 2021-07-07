@@ -1,1 +1,2 @@
-https://github.com/aAndres441/Angular12.git
+Este sera el repo del proyecto para tener de respaldo,
+URL= https://github.com/aAndres441/Angular12.git
