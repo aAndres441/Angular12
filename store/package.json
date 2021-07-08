@@ -3,16 +3,21 @@
   "version": "0.0.1",
   "description": "Proyecto base que sera creciendo como mi hija en el 4 de Julio.",
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "https://github.com/aAndres441/Angular12.git"
   },
   "license": "MIT",
   "engines": {
     "node": ">=0.14.10.0",
-    "angular":">=12.0.0",
-    "npm":">=7.10.0"
+    "angular": ">=12.0.0",
+    "npm": ">=7.10.0"
   },
-  "keywords": ["scss","material","angular12","upload files"],
+  "keywords": [
+    "scss",
+    "material",
+    "angular12",
+    "upload files"
+  ],
   "author": "Andresito <andrarias@gmail.com>",
   "scripts": {
     "ng": "ng",
@@ -24,10 +29,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.1.1",
+    "@angular/cdk": "^12.1.1",
     "@angular/common": "~12.1.1",
     "@angular/compiler": "~12.1.1",
     "@angular/core": "~12.1.1",
     "@angular/forms": "~12.1.1",
+    "@angular/material": "^12.1.1",
     "@angular/platform-browser": "~12.1.1",
     "@angular/platform-browser-dynamic": "~12.1.1",
     "@angular/router": "~12.1.1",
