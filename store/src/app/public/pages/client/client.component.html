@@ -1,4 +1,263 @@
-
 <div class="cube">
-    <p>client works!</p>
+  <h1>Client works!</h1>
+
+  <div *ngIf='images.length ===0'>
+    <p>Lista de Imagenes = {{imagesCount}}</p>
+  </div>
+  <div *ngIf='images.length>0'>
+    <p>Lista de Imagenes = {{imagesCount}}</p>
+  </div>
+
+  <mat-divider></mat-divider>
+  <section>
+
+    <div class="example-label">Mini FAB</div>
+
+    <span class="mdi mdi-allergy">allergy</span>
+
+    <span><i class="fa fa5-bone"></i></span>
+
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div class="example-button-container">
+          <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+        <div class="example-button-container">
+          <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+            <mat-icon>plus_one</mat-icon>
+          </button>
+        </div>
+        <div class="example-button-container">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+            <mat-icon>filter_list</mat-icon>
+          </button>
+        </div>
+        <div class="example-button-container">
+          <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD -->
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card-content>
+    <div class="example-container">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" floatLabel="always">
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="00">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field>
+    </div>
+    <!--  <p> -->
+    <mat-form-field appearance="fill">
+      <mat-label>Fill form field</mat-label>
+      <input matInput placeholder="Fenix" style="font-family: 'Courier New', Courier, monospace;">
+      <mat-icon matSuffix style="color:yellowgreen">{{hide ? 'visibility_off' : 'sentiment_very_satisfied'}}</mat-icon>
+    </mat-form-field>
+    <!--   </p> -->
+
+  </mat-card-content>
+
+  <!-- FORM -->
+  <div class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Input" [type]="hide ? 'password' : 'number'">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Textarea"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Price" type="number" class="example-right-align">
+    </mat-form-field>
+
+    <!-- SELECT -->
+    <h4>Mat-select</h4>
+    <p>You selected: {{selected}}</p>
+
+    <mat-form-field >
+      <mat-label>Favorite State</mat-label>
+      <mat-select [formControl]="stateControl" required >
+        <mat-option>-XXXXXXXXXXX-</mat-option>
+        <mat-option *ngFor="let sta of states" [value]="sta" class="mat-select-panel">
+          {{sta.viewName}}{{selected}}
+        </mat-option>
+      </mat-select>
+      <!-- [(value)]="selected" o [value]="state">{{state}}-->
+      <mat-error *ngIf="stateControl.hasError('required')">Please choose an STATE</mat-error>
+      <mat-hint>{{stateControl.value?.sound}}</mat-hint>
+    </mat-form-field>
+
+  </div>
+
+  <div class="title" *ngIf='[images]'>
+    <div class=" logo-image img-responsive" style="background-image: url(assets/images/istock.jpg); 
+            height:42rem; 
+            margin: 2rem 2rem 2rem 2rem ;  
+            display:flex; 
+            justify-content:center; 
+            align-items:center;">
+
+      <div class="text-white text-center">
+        <div *ngIf="!view; then logout else entrar">
+          <label for="cube-slider">Select Slider or Color</label>
+        </div>
+        <ng-template #logout>
+          <label for="">select slider</label>
+          <mat-slider min="1" max="100" step="1" value="1" id="cube-slider"></mat-slider>
+        </ng-template>
+
+        <ng-template #entrar>
+          <label for="">select color</label>
+          <input type="color">
+        </ng-template>
+        <div>
+          <button class="btn btn-success" (click)="cambiarVista()"> boton </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <label for="imagen"><b>Seleccione imagen</b></label>
+    <input type="file" name="imagen" id="imagen" accept=".jpg, .png" (change)="onLoadImg($event)">
+    <span class="img-responsive">
+      <img [src]='imageLoad' alt={{imgName}} class="fenix">
+      <!-- <img [src]= imgen alt="imagen.name" class="img-responsive" style="max-height: 150px;">-->
+    </span>
+    <p>imgURI: {{imgURI}}</p>
+
+    <div class="figuras b2-grid-container ">
+      <div class="unaFig">
+        <figure>
+          <img src="assets/images/sol.png" alt="sol">
+          <figcaption>Descripcion</figcaption>
+        </figure>
+      </div>
+
+      <div class="dosFig">
+        <figure>
+          <img src="assets/images/tiki.jpg" alt="logo1">
+          <img [src]='imageLoad' alt={{imgName}}>
+          <img src={{imageLoad}} alt={{imgName}}>
+        </figure>
+      </div>
+    </div>
+
+    <ul>
+      <li><a href="#parrafo1">Parrafo1</a></li>
+      <li><a href="#parrafo2">Parrafo2</a></li>
+      <li><a href="#parrafo3">Parrafo3</a></li>
+      <li><a href="#parrafo7">Parrafo7</a></li>
+    </ul>
+
+  </header>
+
+  <main>
+    <section>
+      <h3>Main</h3>
+      <blockquote>
+        <p id="parrafo7">
+          <b>Parrafo7</b>
+          <strong>Lorem</strong> ipsum, dolor sit amet consectetur adipisicing elit. Repellat error numquam
+          reiciendis eveniet temporibus velit enim officiis ad, dolorem, nisi dolore odio! Mollitia dolorum
+          vitae
+          enim quos blanditiis similique provident.
+          Cumque sequi corporis dicta unde fugiat ducimus perspiciatis perferendis aut, placeat repellat
+          nobis?
+          Beatae ab nobis iste ex repudiandae nulla. Error possimus dignissimos provident modi harum laborum
+          impedit nihil rerum?
+        </p>
+
+
+        <p id="parrafo4">
+          <b>Parrafo4</b>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat error numquam reiciendis eveniet
+          temporibus velit enim officiis ad, dolorem, nisi dolore odio! Mollitia dolorum vitae enim quos
+          blanditiis similique provident.
+          Cumque sequi corporis dicta unde fugiat ducimus perspiciatis perferendis aut, placeat repellat
+          nobis?
+          Beatae ab nobis iste ex repudiandae nulla. Error possimus dignissimos provident modi harum laborum
+          impedit nihil rerum?
+        </p>
+        <p id="parrafo5">
+          <b>Parrafo5</b>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat error numquam reiciendis eveniet
+          temporibus velit enim officiis ad, dolorem, nisi dolore odio! Mollitia dolorum vitae enim quos
+          blanditiis similique provident.
+          Cumque sequi corporis dicta unde fugiat ducimus perspiciatis perferendis aut, placeat repellat
+          nobis?
+          Beatae ab nobis iste ex repudiandae nulla. Error possimus dignissimos provident modi harum laborum
+          impedit nihil rerum?
+        </p>
+      </blockquote>
+
+    </section>
+  </main>
+  <aside>
+    <h3>Aside</h3>
+    <p id="parrafo1">
+      <b>Parrafo1</b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat error numquam reiciendis
+      eveniet temporibus velit enim officiis ad, dolorem, nisi dolore odio! Mollitia dolorum vitae enim quos
+      blanditiis similique provident.
+      Cumque sequi corporis dicta unde fugiat ducimus perspiciatis perferendis aut, placeat repellat nobis? Beatae
+      ab nobis iste ex repudiandae nulla. Error possimus dignissimos provident modi harum laborum impedit nihil
+      rerum?
+    </p>
+    <p id="parrafo2">
+      <b>Parrafo2</b>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat error numquam reiciendis eveniet
+      temporibus velit enim officiis ad, dolorem, nisi dolore odio! Mollitia dolorum vitae enim quos blanditiis
+      similique provident.
+      Cumque sequi corporis dicta unde fugiat ducimus perspiciatis perferendis aut, placeat repellat nobis? Beatae
+      ab nobis iste ex repudiandae nulla. Error possimus dignissimos provident modi harum laborum impedit nihil
+      rerum?
+    </p>
+
+    <p id="parrafo3">
+      <b>Parrafo3</b>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat error numquam reiciendis eveniet
+      temporibus velit enim officiis ad, dolorem, nisi dolore odio! Mollitia dolorum vitae enim quos blanditiis
+      similique provident.
+      Cumque sequi corporis dicta unde fugiat ducimus perspiciatis perferendis aut, placeat repellat nobis? Beatae
+      ab nobis iste ex repudiandae nulla. Error possimus dignissimos provident modi harum laborum impedit nihil
+      rerum?
+    </p>
+  </aside>
+
+
 </div>

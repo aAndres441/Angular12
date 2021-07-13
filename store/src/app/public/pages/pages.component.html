@@ -1,10 +1,21 @@
 <p>pages works!</p>
+<div class="sidebar" id="sidebar-wrapper">
+  <div class="sidebar-heading">
+    <a routerLink="/"><b>StOrE</b></a>
+  </div>
+  <!--  <div class="list-group list-group-flush">
+      <a routerLink='/pauli' class="list-group-item list-group-item-action">
+        <i class="fa fa-columns" aria-hidden="true"></i> pauli
+      </a>
+      <a [routerLink]="['/pauli/fichero']" class="list-group-item list-group-item-action">
+        <i class="fa fa-users" aria-hidden="true"></i> fichero
+      </a>
+     </div> -->
+</div>
+
 
 <div style="background-color: blue; padding-top:2em; color: white">
 
-    <label for="birthdaytime">Birthday (date and time):</label>
-    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
 </div>

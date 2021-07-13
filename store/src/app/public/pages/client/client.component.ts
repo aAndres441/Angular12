@@ -1,4 +1,18 @@
+/**
+ * @title Card and parts of Material with multiple sections
+ */
+
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
+/**
+ * @title Basic select
+ */
+interface State {
+    name: string;
+    viewName: string;
+    rating: number;
+  }
 
 @Component({
   selector: 'app-client',
@@ -7,10 +21,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
+    imgName:any;
+    imgURI='';
+    imageLoad:any;
+    images:any=[];
+    view:boolean=false;
+    imagesCount=0;
+    hide = true;
+
+    selected = 'option2';
+
+    stateControl = new FormControl('', Validators.required);
+    selectFormControl = new FormControl('', Validators.required);
+    
+    states: State[] = [
+        {name: 'Alabama', viewName: 'Alabama', rating:1},
+        {name: 'Alabama', viewName: 'Alabama', rating:1},
+        {name: 'Alabama', viewName: 'Alabama', rating:1},
+        {name: 'California', viewName: 'AlaCaliforniabama', rating:31},
+        {name: 'Minnesota', viewName: 'Minnesota', rating:21},
+        {name: 'Washington', viewName: 'Washington', rating:33},
+        {name: 'New York', viewName: 'New York', rating:8},
+        {name: 'Florida', viewName: 'Florida', rating:5},
+        {name: 'Hawaii', viewName: 'Hawaii', rating:24}        
+      ];
+
   constructor() { }
 
   ngOnInit(): void {
+      /* this.imgName= href='D:\ORT\AYUDANTIAS\Lenguaje_Angular\Angular12\Angular12\store\src\assets\images\sol.png'; */
+      
+    
+    }
+
+  onLoadImg(event: any) { // solo usare del parametro event el target, de aca el files y el que esta en primer lugar que es su nombre
+    console.log('sube ' , event.target.files[0], 'Todo ' , event); 
+    console.log(this.view);
+    
+    this.view = !this.view;
+
+    console.log(this.view);
+    
+    this.imgName = event.target.files[0].name;
+    this.imageLoad = event.target.files[0];
+    this.imgURI=event.target.namespaceURI;
+   /*  alert('URI '+ this.imgURI); */
+   console.log('LABEL' , event.target.namespaceURI);
+   
+
+    this.images.push(event.target);
+    this.imagesCount++;
+
+    alert('Imagen nombre: ' + this.imgName);  
+    console.log('Largo', this.images.length);
+    
   }
+cambiarVista(){
+    this.view = !this.view;
+}
 /* HASH
 ef hash(unaCadena, tamanoTabla):
     suma = 0

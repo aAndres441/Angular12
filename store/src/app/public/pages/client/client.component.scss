@@ -1,12 +1,169 @@
+* {
+    width: 90%;
+    /* border: 1px solid red; */
+    /* float: right; */
+    padding-right: 1rem;
+    margin: 2rem 2rem;
+  }
+
 .cube{
-    margin: 0,auto;
+    margin: 33px auto auto auto;
     border: 1px solid grey;
-    width:150px;
-    height:150px;
+   /*  width:430px;
+    height:auto; */
     background-color:hsla(39, 100%, 50%, 0.644);
-    box-shadow:0,0,15px,-15px rgb(4, 4, 122);;
+  
+    
+    transition: transform 3s;
 }
 
 .cube:hover{
+   /*  transition-delay:1s;
     transform:translateY(-20px);
+    transform:rotate(40deg);  */   
+    box-shadow:20px 10px 15px 10px pink;    
   }
+
+.cube:hover::after{
+    content: 'Lala';
+    color: greenyellow;
+    font-weight:bold;
+}
+
+header ul {
+  /* max-width:150px; */
+  /* list-style-image: url("./images/sol.png"); */
+  color: yellow;
+  display:inline-flex;
+  /* margin:0px; */
+}
+@media (min-width: 760px) {
+  header ul{
+    max-width:100px;
+  }
+  header ul li a{
+    color:yellowgreen;
+  }
+ /*  #sidebar-wrapper {
+    margin-left: 0;
+    
+  } */
+}
+
+/*main{
+   width:650px;
+  margin:auto; 
+}*/
+.cube ul li{
+  list-style: none;
+  text-decoration: none;
+  color:greenyellow;
+}
+
+figure, .img_container .fenix{ // todas las clases img_container y elemento figure
+ 
+  margin-left: 20%;
+  /* border: 2px solid rgb(0, 8, 2);
+  color: rgb(241, 219, 21);  */
+  text-align: center;
+  width: 100px;
+  height: 100px;  
+}
+figcaption{
+  margin-bottom: 2rem;
+}
+
+////////////////////////////////////
+/*img { 
+   float: right;   
+}*/
+// esta imagen es mas alta que el elemento que la contiene, y está flotando, ¡y se sale de su contenedor!
+.clearfix {  
+  overflow: auto;  zoom: 1; 
+}
+////////////////////////////////////
+
+img{
+  /* float: right; */
+  border-radius: 40px;
+  /* overflow: auto;  zoom: 1;  */
+  /* max-width:clearfix; */
+  height: auto; max-width: 100%;
+}
+////////////////////////////////
+.figuras{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40px;
+  grid-area: "unaFig" "dosFig";
+}
+//////////////////////////////
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+/* FORM */
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+/* Card imagen */
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+mat-error, mat-label, mat-hint{ 
+  color: #c8e2ad;
+}
+
+.mat-select-panel:hover {
+  /* transition-delay: .5s; */
+  /* transition: transform 2s; */
+  background: #557E29;
+}
+
+/* .mat-select-panel:not(.mat-option-disabled) {
+  color: #2874cc;
+} */
+
+
+$admin-primary-color:#2a426e !important;
+
+/* --ion-color-base: var(--ion-color-marroonCito) !important;
+
+*/
+@media screen and (max-width: 767px) {
+
+  
+.form-container > *{
+  color:black;
+ text-transform: uppercase;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+  input {
+    color: #f0c126;
+  }
+
+}

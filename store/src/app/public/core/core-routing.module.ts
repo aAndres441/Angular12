@@ -19,6 +19,11 @@ const routes: Routes = [
         import('./error/error.module')
           .then(m => m.ErrorModule)
     },
+    {
+      path: 'header', loadChildren: () =>
+        import('./header/header.module')
+          .then(m => m.HeaderModule)
+    },
   ]
 }
 ];
