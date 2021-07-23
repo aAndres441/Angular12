@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {VigilanteGuardGuard}from './../../guards/vigilante-guard.guard'
 
 import { PagesComponent } from './pages.component';
 
 const routes: Routes = [
   {
     path: 'client',
-    component: PagesComponent,
+    component: PagesComponent, /* canActivateChild:[VigilanteGuardGuard], */
     children: [
       {
         path: '', loadChildren: () =>
@@ -16,7 +17,7 @@ const routes: Routes = [
       {
         path: 'fichero', loadChildren: () =>
           import('./fichero/fichero.module')
-            .then(m => m.FicheroModule)
+            .then(m => m.FicheroModule)/*  ,canActivateChild:[VigilanteGuardGuard] */
       },
     ]
   }

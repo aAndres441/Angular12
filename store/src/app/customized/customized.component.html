@@ -1,0 +1,23 @@
+
+
+
+      <label for="email" class="form-label">customized Email address</label>
+    <input type="email" 
+            class="form-control"             
+            required placeholder="ej:www.name@exmple.com"             
+            name="email" title="Add email"
+            (change)="changeElText($event)"
+            [value]='email'
+    /> 
+    <!-- <button type="button" class="btn btn-success bg-dark" (click)="fenix()">Fenix</button> -->
+      <!-- formControlName='email'
+        [class]="isInvalidField('email')" -->
+ 
+ <!--  <div class="invalid-data" *ngIf="!loginUsuForm.get('email')?.valid && loginUsuForm.get('email')?.touched">
+    <span *ngIf="loginUsuForm.get('email')?.errors?.['required']">
+      e-mail is required
+    </span>
+    <span *ngIf="loginUsuForm.get('email')?.errors?.['email']">
+      "www.name<b>@</b>exmple.com"
+    </span>
+  </div> -->

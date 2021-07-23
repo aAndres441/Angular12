@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,20 +10,26 @@ import { PagesModule } from './public/pages/pages.module';
 import { CoreModule } from '@file-public/core/core.module';
 
 
+import { CustomizedComponent } from './customized/customized.component';
+
+
 const MODULES = [ 
   PagesModule,
   CoreModule
 ]
 
+
 @NgModule({
   declarations: [
     AppComponent
   ],
+  
   imports: [
     BrowserModule,
     ...MODULES,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

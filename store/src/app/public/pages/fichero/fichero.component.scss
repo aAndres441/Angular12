@@ -12,8 +12,92 @@
     transition-delay:2s;
 }
 
-.cube:hover{
-   /*  transform:translateY(-20px);
-    transform:rotate(90deg); */
-    /* transition: transform 3s; */
+/* .cube:hover{
+    transform:translateY(-20px);
+    transform:rotate(90deg);
+    transition: transform 3s;
+  } */
+
+/*   mat-icon{
+    color: #557E29;
+  } 
+  mat-icon-button, button{
+    background-color: #557e295d;
+    border-radius: 50%;
+  }*/
+
+  .example-action-button {
+    margin-top: 8px;
+    margin-right: 8px;
+  }
+
+  /* @Botones Matreial */
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  
+  .container-fluid{  
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .imResponsive{
+    height:120px;
+    width:120px;
+    //border-radius:40%;
+    border:2px solid red;
+    clip-path:50% 0%, 0% 100%, 100% 100% ;
+  }
+
+  .wrapper{
+    background-color:#65ff3f;
+    background-image:
+    radial-gradient(at 47% 33%,blue),
+    radial-gradient(at 82% 65%, orange);
+  }
+  .myRenders{
+ /*    background-image: url('https://www.freepng.es/png-3128ud/');*/
+    background-image: url('https://media4.giphy.com/media/7zGxwnuatyWBnm8lrl/giphy.gif?cid=ecf05e47ykfbc8ely9m94os2jk7773i7nurvj63eoi184yj2&rid=giphy.gif&ct=g');
+     background-position: center;
+  }
+
+  .claseParaRender{
+    font-weight: bold;
+    background-color:whitesmoke;
+    color: black;
+  }
+
+  img{
+    max-width:auto;
+    max-height:100px;
   }

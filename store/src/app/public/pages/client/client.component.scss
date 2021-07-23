@@ -37,6 +37,8 @@ header ul {
   display:inline-flex;
   /* margin:0px; */
 }
+
+/* *************************************** */
 @media (min-width: 760px) {
   header ul{
     max-width:100px;
@@ -44,11 +46,33 @@ header ul {
   header ul li a{
     color:yellowgreen;
   }
+    /* mat-select mat-option{
+      width:50px;
+      background-color:yellowgreen;
+      color: red;
+      font-size:small;
+    } */
+    h1{
+      color:blue;
+    }  
  /*  #sidebar-wrapper {
-    margin-left: 0;
-    
+    margin-left: 0; 
   } */
 }
+@media screen and (max-width: 867px) {
+  
+  .form-container > *{
+    color:black;
+   text-transform: uppercase;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+  }
+    input {
+      color: #0faa3e;
+    }
+  
+  }
+  /* *************************************** */
 
 /*main{
    width:650px;
@@ -84,7 +108,7 @@ figcaption{
 ////////////////////////////////////
 
 img{
-  /* float: right; */
+  float: right;
   border-radius: 40px;
   /* overflow: auto;  zoom: 1;  */
   /* max-width:clearfix; */
@@ -128,20 +152,49 @@ input.example-right-align {
 /* Card imagen */
 .example-card {
   max-width: 400px;
+  align-content: center;
+  justify-content: center;
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
-mat-error, mat-label, mat-hint{ 
-  color: #c8e2ad;
+
+.logo-image {
+  background-image: url('../../../../assets/images/istock.jpg'); 
+  height:42rem; 
+  margin: 2rem 2rem 2rem 2rem ;  
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+}
+span, mat-icon{
+  color: rgb(125, 151, 77);
+}
+mat-label, mat-hint{ 
+  color: #746662;
+}
+
+mat-error{ 
+  color: #c24729;
+  font-size:14px;
+}
+
+mat-select{
+  max-width: 200px;
 }
 
 .mat-select-panel:hover {
   /* transition-delay: .5s; */
   /* transition: transform 2s; */
   background: #557E29;
+}
+.mat-select-panel:active {
+  color: #7caff3;
+}
+.mat-select-panel:first-child {
+  color: #7caff3;
 }
 
 /* .mat-select-panel:not(.mat-option-disabled) {
@@ -154,16 +207,4 @@ $admin-primary-color:#2a426e !important;
 /* --ion-color-base: var(--ion-color-marroonCito) !important;
 
 */
-@media screen and (max-width: 767px) {
 
-  
-.form-container > *{
-  color:black;
- text-transform: uppercase;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-  input {
-    color: #f0c126;
-  }
-
-}

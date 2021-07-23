@@ -1,0 +1,169 @@
+<p>login works! con <b>Control Value Accessor</b> </p>
+<div class="sageebar-heading">
+  <a routerLink="/"><b>StOrE</b></a>
+</div>
+<div class="col-xs-10 col-sm-10 col-md-10 alert is-helpful" style="text-align: center;">
+  <h2><b>{{submitted}} - Formulario</b><q><u><i><small>( form reactiv)</small></i></u></q></h2>
+</div>
+
+<div class="container mb-3">
+  <form [formGroup]="loginUsuForm" (ngSubmit)='onSubmit()'>
+<!-- Name -->
+    <div class="form-group">
+      <label for="name" class="form-label">Name<i class="fa fa-location-arrow"></i></label>
+      <input type="text" class="form-control" formControlName='name' required placeholder="Name" name="name"
+        title="ingrese su nombre">
+    </div>
+    <div class="invalid-data" *ngIf="!loginUsuForm.get('name')?.valid && loginUsuForm.get('name')?.touched">
+      <span *ngIf="loginUsuForm.get('name')?.errors?.['required']"> Must be Name </span>
+      <span *ngIf="loginUsuForm.get('name')?.errors?.['minLength(4)']"> Must be longer than 4 characters. </span>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="name" class="form-label">password<i class="fa fa-location-arrow"></i></label>
+      <input type="password" class="form-control" formControlName='password' required placeholder="Password" name="password"
+        title="Ingrese su Clave">
+    </div>
+    <div class="invalid-data" *ngIf="!loginUsuForm.get('password')?.valid && loginUsuForm.get('password')?.touched">
+      <span *ngIf="loginUsuForm.get('password')?.errors?.['required']"> Must be Password </span>
+      <span *ngIf="loginUsuForm.get('password')?.errors?.['minLength(4)']"> Must be longer than 4 characters. </span>
+    </div>
+   
+    <!-- Reactivo -->
+    <div class="form-group">
+      <label for="reactivo">Reactivo</label>
+      <input type="text" 
+          id="reactivo" class="form-control" 
+          formControlName="reactivo" required 
+          title="es Reactivo" placeholder="React max lengt 5 characters">
+    </div>
+    <div *ngIf="loginUsuForm.get('reactivo')?.invalid && (loginUsuForm.get('reactivo')?.dirty 
+            || loginUsuForm.get('reactivo')?.touched)" 
+            class="alert alert-danger">
+
+      <div *ngIf="loginUsuForm.get('reactivo')?.errors?.required">
+        Name is required.
+      </div>
+      <div *ngIf="loginUsuForm.get('reactivo')?.errors?.maxLength" class="ng-pristine">
+        Name must be at shortest 5 characters long.
+      </div>
+      <!-- <div *ngIf="reactivo.errors?.forbiddenName">
+        Name cannot be Bob.
+      </div> -->
+    </div>
+
+    <!-- Email lo cambio por customized email-->
+    <div class="form-group">
+      <div [class]="isInvalidField('email')">
+        <app-customized 
+          formControlName="email" 
+          (hijoOnchangeError)="changeElErrorClase($event)">
+        </app-customized>
+      </div>
+    </div>
+
+    <div class="invalid-data" *ngIf="!loginUsuForm.get('email')?.valid && loginUsuForm.get('email')?.touched">
+      <span *ngIf="loginUsuForm.get('email')?.errors?.['required']">
+        e-mail is required
+      </span>
+      <span *ngIf="loginUsuForm.get('email')?.errors?.['email']">
+        "www.name<b>@</b>exmple.com"
+      </span>
+      <span *ngIf="loginUsuForm.get('email')?.status === 'VALID'">
+        "<b>@@@@@@@</b>"
+      </span>
+    </div>
+
+    <!-- Age -->
+    <div class="form-group">
+      <label for="age" class="form-label">Age <i class="fa fa-location-arrow"></i></label>
+      <input type="number" 
+        class="form-control" 
+        formControlName='age' name='age' id="age"
+        required 
+        placeholder="age entre 1-20"
+        min="1" max="20" title="age entre 1-20"
+        [class]="isInvalidField('age')"/>
+      <!-- pattern="[0-9]"  title="Este no parece un usuario de twitter válido"-->
+      <span class="help-block" *ngIf="!loginUsuForm.get('age')?.valid && loginUsuForm.get('age')?.touched">
+        <span *ngIf="loginUsuForm.get('age')?.errors?.['required']">
+          age is required
+        </span>
+      </span>
+    </div>
+
+  <!--   <div class="form-group">
+      <label for="status" class="form-label">Select gender</label>
+      <div class="radio" style="border: 1px solid rgb(234, 252, 71);" *ngFor="let status of statuses">
+        <label>
+          <input formControlName='status' type="radio" 
+            class="form-control" 
+            [value]="status" name="status"
+            [(ngModel)]=genderSelected>
+          {{ status }}
+        </label>
+      </div>
+    </div> -->
+
+    <!-- Select status -->
+    <div class="form-group">
+      <label for="status" class="form-label">Select statuses</label>
+      <select name="status" id="status" 
+        formControlName='status' 
+        class="form-control" 
+        >
+        <option selected disabled>Open this select menu</option>
+        <option [value]="stta" *ngFor="let stta of statuses">
+          {{stta}}
+        </option>
+      </select>
+    </div>
+
+    <!-- comentarios -->
+    <div class="form-group">
+      <label for="comment" class="form-label">Add Text</label>
+      <textarea 
+        class="form-control" rows=3
+        formControlName="comment" id="comment"name="comment"
+        required
+        [class]="isInvalidField('comment')"
+        >
+      </textarea>
+    </div>
+    
+    <br>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="submit" [disabled]="!loginUsuForm.valid" class="btn btn-success" style="width: 50%;">
+          SAVE
+        </button>
+        <button type="button" class="btn btn-danger" style="width: 50%;" 
+          (click)="onCancel()">
+          CANCEL
+          <!-- routerLink="/recipes/start" -->
+        </button>
+      </div>
+    </div>
+    <div class="d-grid gap-2">
+      <button type="submit" [disabled]="!loginUsuForm.valid" 
+      class="btn btn-primary">
+        SUBMIT
+      </button>
+    </div>
+  </form>
+
+  <p>You status selected: {{statusSelected | uppercase}} </p>
+
+  <pre style="border:2px solid green">
+    <label for="">DATOS del form</label>
+    {{loginUsuForm.value | json}};
+  </pre>
+  <hr>
+  <pre>
+    <h4>ErrorClasse</h4>
+    {{errorClasse | json}}
+  </pre>
+
+</div>

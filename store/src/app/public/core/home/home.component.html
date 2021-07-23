@@ -7,6 +7,22 @@
 
 
 <div class="container">
+    <div class="container d-flex  h-100">
+        <!-- <div class="col-lg-12"> -->
+            <h3>Local Storage</h3>
+            <button class="btn btn-secondary" type="button" (click)="guardar()">Guardar
+            </button>
+            <button class="btn btn-success" type="button" (click)="obtener()">Obtener
+            </button>
+            <button class="btn btn-tertiary" type="button" (click)="removeStorage()">Remove
+            </button>
+        <!-- </div> -->
+    </div>
+
+    <div class="local" #local id="local">
+<h4>Local</h4>
+    </div>
+
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus libero orci, et maximus velit venenatis
         vel. Donec dignissim felis nisl, non tempor nisl egestas at. Vivamus sit amet ex metus. Duis ultricies orci

@@ -5,13 +5,13 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { PagesComponent } from './pages.component';
 
-
 const COMPONENTS = [  
   PagesComponent
   /* TitleComponent,
   HeaderComponent,
   SidebarComponent */
 ];
+
 
 @NgModule({
   declarations: [

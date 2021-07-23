@@ -5,12 +5,25 @@
     <div class="list-group list-group-flush">
       <a routerLink='/client' class="list-group-item list-group-item-action">
         <i class="fa fa-columns" aria-hidden="true"></i> client
-      </a>
+      </a>     
       <a [routerLink]="['/client/fichero']" class="list-group-item list-group-item-action">
         <i class="fa fa-users" aria-hidden="true"></i> fichero
       </a>
       <a [routerLink]="['/myHome/header']" class="list-group-item list-group-item-action">
         <i class="fa fa-users" aria-hidden="true"></i> Header
+      </a>
+      <!-- USUARIOS -->
+      <a [routerLink]="['/usuarios/usuario']" class="list-group-item list-group-item-action">
+        <i class="fa fa-users" aria-hidden="true"></i> usuarios
+      </a>
+      <a [routerLink]="['/usuarios/listado']" class="list-group-item list-group-item-action">
+        <i class="fa fa-users" aria-hidden="true"></i> Listado
+      </a>
+      <a [routerLink]="['/usuarios/editar']" class="list-group-item list-group-item-action">
+        <i class="fa fa-users" aria-hidden="true"></i> Editar
+      </a>
+      <a [routerLink]="['/usuarios/login']" class="list-group-item list-group-item-action">
+        <i class="fa fa-users" aria-hidden="true"></i> Login
       </a>
      </div>
   </div>

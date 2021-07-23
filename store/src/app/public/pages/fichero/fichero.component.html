@@ -1,12 +1,141 @@
-
 <div class="cube">
+
+  <!-- @Para subir archivos -->
+
+<!--   <div class="bg-dark">
+    <mat-form-field >
+      <mat-label style="color: red;">Choose imagen</mat-label>
+
+    </mat-form-field>
+  </div>
+
+  <mat-form-field style="border: 1px solid blue">
+    <mat-label>Choose imagen</mat-label>
+    <ngx-mat-file-input accept=".png, .jpg, .jpeg" (click)='capturarImagen($event)' name='capturarImagen'>
+    </ngx-mat-file-input>
+  </mat-form-field> -->
+
+  <mat-divider ></mat-divider>
+
+  <div class="datetime bg-dark">
+    <label for="birthdaytime">Birthday (date and time):</label>
+    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+  </div>
+  <div class="selectFile">
+    <label for="myFile">Choose file</label>
+    <input type="file" accept=".png,.jpg,.jpeg" id="myFile" name="myFile">
+  </div>
+
+  <button class="mdc-fab mdc-fab--extended" aria-label="Favorite">
+    <div class="mdc-fab__ripple"></div>
+    <span class="mdc-fab__icon material-icons">favorite</span>
+    <span class="mdc-fab__label">Create</span>
+  </button>
+
+  <mat-divider></mat-divider>
+  
+  <label for="Listado">Listado</label>
+
+  <mat-nav-list>
+    <mat-list-item *ngFor="let link of links">
+      <a matLine routerLink='/client'>{{ link.name }}</a>
+      <button mat-icon-button (click)="showInfo(link)">
+        <mat-icon>info</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <!-- Tab Lazy -->
+
+  <!-- Date Picker -->
+  
+  <mat-divider></mat-divider>
+
+  <!--  @[ngStyle] y  Renderer2-->
+
+  <div class="wrapper">
+    <h3><i>Manipular DOM con </i><b>Renderer2</b>
+      <!-- <a href="">(click)='toggleRenderer2()'</a> -->
+      <button class="btn btn-default" (click)='toggleConSelector()'>
+        cambio
+      </button>
+    </h3>
+    <a href="https://angular.io/api/core/Renderer2" target="_blank">ir a rendere2</a>
+  </div>
+
+  <div class="flex-container bg-success mb-4 row">
+    <div class="col-md-3">
+      <h4 [ngStyle]="{ color: isColor ? 'black' : 'white', backgroundColor: !isColor ? 'transparent' : 'orange'}">COLOR </h4>  
+      <button mat-raised-button class="example-action-button" (click)="toggleBackground()">
+        Toggle background
+      </button>
+    </div>
     
-    <div class="datetime">
-        <label for="birthdaytime">Birthday (date and time):</label>
-        <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-       </div>
-        <div class="selectFile">
-          <label for="birthdaytime">Choose file</label>
-        <input type="file" id="myFile" name="myFile">
+    <div class="col-md 9 myRenders" >
+      <div class="row">
+        <div class="col-md-6">
+          <p id="textoRender" 
+            #texto_render>Cambia a Render 2 {{dato.text}}
+          </p>
         </div>
+        <div class="col-md-6">
+          <div class="imResponsive">
+            <img [src]="dato.url"alt="data.url"
+          #imagen_render id="imag-render"class="img-responsive">
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button class="example-action-button" (click)="toggleRenderer2()">
+        Render 2
+      </button>
+    </div>  
+  </div>
+
+  <mat-divider>vv</mat-divider>
+
+  <!-- BUTOON FAB -->
+  <section>
+    <div class="example-label">FAB</div>
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div class="example-button-container">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <div class="example-button-container">
+          <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>bookmark</mat-icon>
+          </button>
+        </div>
+        <div class="example-button-container">
+          <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+        <div class="example-button-container">
+          <button mat-fab aria-label="Example icon button with a heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <mat-divider></mat-divider>
+  <section>
+    <div class="example-label">Raised</div>
+    <div class="example-button-row">
+      <button mat-raised-button>Render 2</button>
+      <button mat-raised-button color="primary">
+        <a mat-raised-button 
+          href="https://lab.morioh.com/morioh/preview/light/dashboard-01.html" target="_blank">
+          a Icons
+        </a>
+      </button>
+      <button mat-raised-button color="accent">Accent</button>
+      <button mat-raised-button color="warn">Warn</button>
+      <button mat-raised-button disabled>Disabled</button>
+    </div>
+  </section>
+
 </div>
