@@ -10,6 +10,10 @@
     background-color:hsla(106, 93%, 56%, 0.644);
     box-shadow:0,0,15px,-15px rgb(4, 4, 122);;
     transition-delay:2s;
+    /* ======Colores para  publico tienda y otros inventos ====
+$colorAzul:#369;
+$colorVerde: #557E29;
+color:var(--myText-color);== */
 }
 
 /* .cube:hover{
@@ -57,6 +61,15 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
+
+  .example-flex-selectFile{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 90%;
+    height:130px;
+   background-color:#48dd7a;
+  }
   
   .example-button-container {
     display: flex;
@@ -79,11 +92,11 @@
     clip-path:50% 0%, 0% 100%, 100% 100% ;
   }
 
-  .wrapper{
-    background-color:#65ff3f;
-    background-image:
+  .wrapper{    
+    background-color:#9ddd48;
+    /* background-image:
     radial-gradient(at 47% 33%,blue),
-    radial-gradient(at 82% 65%, orange);
+    radial-gradient(at 82% 65%, orange); */
   }
   .myRenders{
  /*    background-image: url('https://www.freepng.es/png-3128ud/');*/
@@ -93,11 +106,69 @@
 
   .claseParaRender{
     font-weight: bold;
-    background-color:whitesmoke;
+    background-color:rgb(49, 188, 252);
     color: black;
   }
 
   img{
     max-width:auto;
     max-height:100px;
+  }
+
+  /* buenosTips */
+  * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  .buenosTips{
+    display: table-cell;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .square{
+    background-color: #31a514;
+    width:25em;
+  }
+  .square2{
+    background-color: #9955e7;
+    width:5em;
+    aspect-ratio:1/1;
+  }
+
+  /* primera letra */
+  .buenosTips p::first-letter{
+    color:red;
+    font-size:22px;
+    text-transform: uppercase;
+  }  
+  .buenosTips p::before{
+    content: '::Antes';
+  }
+  .buenosTips p::after{
+    content: '::Despues';
+    text-transform: uppercase;
+  }
+
+  .buenosTips p{
+    /* color:var(--myText-color); */
+    color: white;
+    text-shadow: var(--myText-shadow);
+    /* text-shadow: 2px 2px 3px #FF0000, 0 0 5px #0000FF; */
+  }
+
+  .scrol{
+    scroll-behavior: smooth;
+  }
+  
+/* Centrar un div y Usar variable color */
+
+  .divCentrado{
+    background-color: var(--myAzulin);
+    display: block;
+    margin: auto;
+    width: 90%;
+    height:30px;
   }

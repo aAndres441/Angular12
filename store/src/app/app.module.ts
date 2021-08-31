@@ -11,6 +11,7 @@ import { CoreModule } from '@file-public/core/core.module';
 
 
 import { CustomizedComponent } from './customized/customized.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const MODULES = [ 
@@ -29,7 +30,8 @@ const MODULES = [
     ...MODULES,
     AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

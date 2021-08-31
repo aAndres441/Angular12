@@ -1,3 +1,15 @@
+
+/* Probando Mis variables que ya estan en syless de asset
+
+:root{
+    --myText-color: #117411;
+    --myText-shadow: 2px 2px 3px #FF0000, 0 0 5px #00ff62;
+}
+Asi los uso en la clase luego de importarlos los traigo al css a usar */
+ /*@import "./colors.scss";
+ color:var(--myText-color); 
+*/
+
 /* ===============Colores para Admin============================= */
 
 /* $admin-primary-color:#2a426e !important; */

@@ -42,12 +42,12 @@ export class LoginComponent implements OnInit {
   private initForm(): void {    
     /* this.loginUsuForm = new FormGroup({ */
       this.loginUsuForm = this._fb.group({
-        name: new FormControl(this.title, [Validators.required,Validators.minLength(4)]),
+        name: new FormControl(this.title, [Validators.required,Validators.minLength(4),Validators.maxLength(12)]),
         password: new FormControl('', [Validators.required,Validators.minLength(4)]),
         email: new FormControl(null, [Validators.required, Validators.email]),
         age: new FormControl('', Validators.required),     
         status: new FormControl(''),
-        reactivo: new FormControl(null, [Validators.required, Validators.maxLength(5)]),
+        reactivo: new FormControl(null, [Validators.required, Validators.minLength(3),Validators.maxLength(10)]),
         comment: new FormControl('', [Validators.required])
     });
 

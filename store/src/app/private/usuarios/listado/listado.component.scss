@@ -1,0 +1,514 @@
+
+ 
+  /* buenosTips */
+  /** {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  } */
+
+
+/* Borrar */
+* {
+  /* width: 90%; */
+  padding-right: .5rem;
+  margin: 1rem 1rem;
+}
+
+.sidebar-heading{
+    text-align:right;
+}
+
+/* para local storage */
+
+  .textAre{
+    /*box-sizing: border-box;  */
+    width: 80%; /* respecto al padre , restando padding del padre*/
+    /* resize: none; */ /* no cambia el tamaño */
+    font-size: 1.5em; // respecto a proporcion de su padre
+     display: inline-block;
+    border: 1px solid #ccc;
+    padding: 8px 8px;
+    margin: 4px 4px;
+    color:#2331ec;
+    resize: none;
+  }
+  .nameTask{
+    padding: 8px 8px;
+  }
+  .myLocal label{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size:1em;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+    color:rgb(243, 205, 34);
+  }
+
+  /* Renders */
+  .claseParaRender{
+    background-color:rgb(33, 36, 27);
+    color: rgb(241, 233, 233);
+  }
+  .claseParaRender2{
+    background-color:rgb(250, 14, 14);
+    color: rgb(18, 241, 111);
+  }
+  #texto_render{
+    background-color:rgb(33, 36, 27);
+    color: rgb(241, 233, 233);
+  }
+
+  /** *Para login form**/
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+.help-block .invalid-data {
+    border: 1px solid violet;
+    color:violet;
+}
+span{
+    color:red;
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #4bc4fc; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+  
+  .alert div {
+    background-color: #fed3d3a8;
+    color: #820000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+.ng-pristine{border-left: 2px solid #42A948; color: blue}
+.ng-dirty{border-left: 2px solid #a9429b;}
+.ng-untouched{border-left: 2px solid #425aa9;}
+.ng-touched{border-left: 2px solid #e7428f;}
+
+.is-invalid{
+  background-color: #dca2f7;
+}
+.is-valid{
+  border-left: 2px solid #adee15;
+}
+ /* /////////////// */
+form {
+  border: 3px solid #d5eb0e;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+.mybtn{
+  background-color: rgb(182, 245, 140);
+  color: white;
+  padding: 5px 10px;
+  margin: 3px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+  text-shadow: var(--myText-shadow);
+}
+.d-flex > button{
+  /* display: flex;
+  flex-wrap: column; */
+  margin-left: 2px;
+}
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 12px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+/* li a i{
+  color: rgb(82, 218, 236);
+  font-size: 4em;
+  font-size: 24px;
+  background-color:#d5eb0e
+}
+ */
+/* FORm card Material */
+/* Card imagen */
+.container-fluid{
+  width: auto;
+}
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.container-fluid li{
+  margin: 0 30px;
+}/* 
+.vistaForm{
+  margin:auto;
+} */
+.mat-card > *{
+  color: rgb(130, 186, 235);
+  text-align: center;
+  display: block;
+}
+
+mat-label, mat-hint{ 
+  color: #746662;
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+span, mat-icon{
+  color: rgb(125, 151, 77);
+}
+pre {
+  /* display: block; */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  font-size: .875em;
+  display: -webkit-box;
+}
+
+
+
+.cube{
+  margin: 33px auto auto auto;
+  border: 1px solid grey;
+ /*  width:430px;
+  height:auto; */
+  background-color:hsla(39, 100%, 50%, 0.644);
+
+  
+  transition: transform 3s;
+}
+
+.cube:hover{
+ /*  transition-delay:1s;
+  transform:translateY(-20px);
+  transform:rotate(40deg);  */   
+  box-shadow:20px 10px 15px 10px pink;    
+}
+
+.cube:hover::after{
+  content: 'Lala';
+  color: greenyellow;
+  font-weight:bold;
+}
+
+header ul {
+/* max-width:150px; */
+/* list-style-image: url("./images/sol.png"); */
+color: yellow;
+display:inline-flex;
+/* margin:0px; */
+}
+
+/* *************************************** */
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+  .textAre{
+    width:100%; /* respecto al padre , restando padding del padre*/   
+    border-top: 1px solid #05ff05;
+  }
+  span{
+     text-shadow: var(--myText-shadow);
+  }
+}
+/* Termina @media screen */
+
+@media (min-width: 760px) {
+header ul{
+  max-width:100px;
+}
+header ul li a{
+  color:yellowgreen;
+}
+  /* mat-select mat-option{
+    width:50px;
+    background-color:yellowgreen;
+    color: red;
+    font-size:small;
+  } */
+  h1{
+    color:blue;
+  }  
+/*  #sidebar-wrapper {
+  margin-left: 0; 
+} */
+}
+@media screen and (max-width: 867px) {
+
+.form-container > *{
+  color:black;
+ text-transform: uppercase;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+  input {
+    color: #0faa3e;
+  }
+
+}
+/* *************************************** */
+
+/*main{
+ width:650px;
+margin:auto; 
+}*/
+.cube ul li{
+list-style: none;
+text-decoration: none;
+color:greenyellow;
+}
+
+figure, .img_container .fenix{ // todas las clases img_container y elemento figure
+
+margin-left: 20%;
+/* border: 2px solid rgb(0, 8, 2);
+color: rgb(241, 219, 21);  */
+text-align: center;
+width: 100px;
+height: 100px;  
+}
+figcaption{
+margin-bottom: 2rem;
+}
+
+////////////////////////////////////
+/*img { 
+ float: right;   
+}*/
+// esta imagen es mas alta que el elemento que la contiene, y está flotando, ¡y se sale de su contenedor!
+.clearfix {  
+overflow: auto;  zoom: 1; 
+}
+////////////////////////////////////
+
+img{
+float: right;
+border-radius: 40px;
+/* overflow: auto;  zoom: 1;  */
+/* max-width:clearfix; */
+height: auto; 
+max-width: 100%;
+}
+
+img{
+  max-width:auto;
+  max-height:100px;
+}
+/////// BUSCADOR  //////
+.busqueda{
+   margin: 0 auto;
+   cursor: pointer;
+   font-family:Roboto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 80px;
+   margin-left:10px;
+   color:#0faa3e; 
+}
+.searchGoogle{
+  width: 40px;  
+  border-radius:30px;
+  box-shadow: -1px 3px 6px 0px rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  padding:0px;
+  transition:1.5s;
+  overflow: hidden; //para que los elem que salgan, se oculten
+}
+#searchGoogle input{  
+  color:#0faa3e;  
+  border:none;
+  font-size:20px;
+  outline:none;/* 
+  background-color:rgb(250, 250, 250); */
+}
+.escala{
+  width:400px;
+  background-color: #6c85b44b;
+  border:1px solid red;
+}
+.escala2{
+  width:400px;
+  background-color: #8becd4;
+  border:1px solid red;
+}
+
+*[_ngcontent-ycv-c164] {
+  padding-right: 0;
+  margin: 0;
+}
+
+////////////////////////////////
+.figuras{
+display:grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 40px;
+grid-area: "unaFig" "dosFig";
+}
+//////////////////////////////
+/* .example-container .mat-form-field + .mat-form-field {
+margin-left: 8px;
+} */
+
+.example-right-align {
+text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+display: none;
+}
+
+input.example-right-align {
+-moz-appearance: textfield;
+}
+
+/* FORM */
+.form-container {
+display: flex;
+flex-direction: column;
+}
+
+.form-container > * {
+width: 100%;
+}
+
+/* Card imagen */
+.example-card  {
+max-width: 400px;
+align-content: center;
+justify-content: center;
+}
+
+.example-header-image {
+background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+background-size: cover;
+}
+
+.logo-image {
+background-image: url('../../../../assets/images/istock.jpg'); 
+height:42rem; 
+margin: 2rem 2rem 2rem 2rem ;  
+display:flex; 
+justify-content:center; 
+align-items:center;
+}
+span, mat-icon{
+color: rgb(125, 151, 77);
+}
+mat-label, mat-hint{ 
+color: #746662;
+}
+
+mat-error{ 
+color: #c24729;
+font-size:14px;
+}
+
+mat-select{
+max-width: 200px;
+}
+
+.mat-select-panel:hover {
+/* transition-delay: .5s; */
+/* transition: transform 2s; */
+background: #557E29;
+}
+.mat-select-panel:active {
+color: #7caff3;
+}
+.mat-select-panel:first-child {
+color: #7caff3;
+}
+
+/* .mat-select-panel:not(.mat-option-disabled) {
+color: #2874cc;
+} */
+
+
+$admin-primary-color:#2a426e !important;
+
+/* --ion-color-base: var(--ion-color-marroonCito) !important;
+
+*/
+#canvas{
+  /* Canvas Es como una imagen */
+  background-color:var(--myAzulin);
+  width:60%;
+  height:20px;
+    display: block;
+    margin: 0 auto;
+}
+#canvas::after{
+  /* Canvas Es como una imagen */
+  background-color:var(--myAzulin);
+  width:4px;
+  height:220px;
+    display: block;
+    margin-left: 20%;
+}
+table {
+  width: 90%;
+  margin:1rem auto;
+  box-shadow: -1px 3px 66px 0px rgba(0,0,0,0.75);
+  border: 1px solid red;
+  text-align:center;
+}
+
+
+/* ///////////////////////// */

@@ -17,6 +17,7 @@
     <div class="invalid-data" *ngIf="!loginUsuForm.get('name')?.valid && loginUsuForm.get('name')?.touched">
       <span *ngIf="loginUsuForm.get('name')?.errors?.['required']"> Must be Name </span>
       <span *ngIf="loginUsuForm.get('name')?.errors?.['minLength(4)']"> Must be longer than 4 characters. </span>
+      <span *ngIf="loginUsuForm.get('name')?.errors?.['maxLength(12)']"> Must be shorter than 12 characters. </span>
     </div>
 
     <!-- Password -->
@@ -46,7 +47,10 @@
         Name is required.
       </div>
       <div *ngIf="loginUsuForm.get('reactivo')?.errors?.maxLength" class="ng-pristine">
-        Name must be at shortest 5 characters long.
+        Name must be at shortest 10 characters long.
+      </div>
+      <div *ngIf="loginUsuForm.get('reactivo')?.errors?.minLength" class="ng-pristine">
+        Name must be at shortest 3 characters short.
       </div>
       <!-- <div *ngIf="reactivo.errors?.forbiddenName">
         Name cannot be Bob.

@@ -53,7 +53,7 @@
     <!------------ FORM -------->
     <mat-card-content style="border: 2px solid white">
       <form [formGroup]="clientForm" (ngSubmit)='onSubmit()'>
-
+      
         <!-- password -->
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
@@ -64,7 +64,7 @@
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}} </mat-icon>
           </button>
         </mat-form-field>
-
+      
         <!-- Name -->
         <mat-form-field appearance='fill' title="Name">
           <mat-label for="name" class="form-label">Name</mat-label>
@@ -72,7 +72,7 @@
             [formControl]="name" required max-length=10 [(ngModel)]="nameSelected">
           <mat-icon matSuffix>alarm</mat-icon>
         </mat-form-field>
-
+      
         <!-- Amount -->
         <mat-form-field floatLabel="always" appearance='fill' title="Amount">
           <mat-label for="amount" class="form-label">Amount</mat-label>
@@ -84,19 +84,19 @@
             {{hide ? 'attach_money' : 'thumb_up_alt'}}
           </mat-icon>
         </mat-form-field>
-
+      
         <!-- comment -->
         <mat-form-field appearance="fill" title="Add comment">
           <mat-label for="comment" class="form-label">Add Comment</mat-label>
           <textarea matInput [formControl]="comment" class="example-center-align" required id="comment" name="comment"
             placeholder="Comment" [(ngModel)]="commentSelected">        <!--formControlName="textArea"  [(value)]="priceSelected" -->
-          </textarea>
+                </textarea>
           <mat-icon matSuffix>
             comment
           </mat-icon>
           <mat-error *ngIf="comment.hasError('required')">Please insert an comment</mat-error>
         </mat-form-field>
-
+      
         <!-- SELECT state-->
         <mat-form-field appearance="fill" [floatLabel]="floatLabelControl.value" title="Select state">
           <mat-label>Select youe favorite State</mat-label>
@@ -109,22 +109,22 @@
           <mat-error *ngIf="stateControl.hasError('required')">Please choose an STATE</mat-error>
           <mat-hint>{{stateControl.value?.sound}}</mat-hint>
         </mat-form-field>
-
-        <!-- <div class="display-flex">
-      <mat-button>
-        <mat-icon>save_alt</mat-icon>
-      </mat-button>
-      <mat-button>
-        <mat-icon>error</mat-icon>
-      </mat-button>
-    </div> -->
-    <div class="flex-container">
-      <button class="btn btn-primary" type="submit" 
-      [disabled]="!clientForm.valid">
-        <mat-icon>save_alt</mat-icon>
-        send
-      </button>
-    </div>
+      
+          <!-- <div class="display-flex">
+            <mat-button>
+              <mat-icon>save_alt</mat-icon>
+            </mat-button>
+            <mat-button>
+              <mat-icon>error</mat-icon>
+            </mat-button>
+          </div> -->
+        <div class="flex-container">
+          <button class="btn btn-primary" type="submit" 
+            [disabled]="!clientForm.valid">
+            <mat-icon>save_alt</mat-icon>
+            send
+          </button>
+        </div>
       </form>
     </mat-card-content>
 

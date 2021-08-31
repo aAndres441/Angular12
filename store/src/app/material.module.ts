@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
-import { MatLabel,MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +13,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
 
 const MODULES = [
   MatDividerModule,
@@ -24,7 +25,8 @@ const MODULES = [
   MatSliderModule,
   MatCardModule,
   MatSelectModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTableModule
 ]
 
 @NgModule({

@@ -1,4 +1,347 @@
-<p>listado works!</p>
-<div class="sidebar-heading" >
-    <a routerLink="/"><b>StOrE</b></a>
+
+<!--<div class="bd-highlight d-flex p-2">  -->
+  <div class="card border-light mb-2">
+    <div class="card-header">
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <div class="container-fluid"></div>
+      </nav> -->
+      <div class="sidebar-heading" >
+        <ul class="navbar-nav me-auto grid-container">
+          <li><a routerLink="/"> <mat-icon>home</mat-icon> </a> </li>
+          <li><div class="spinner-border text-warning" role="status">
+              <span class="visually-hidden">Loading...</span> </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-header">
+      <h4 class="card-title">Ejemplo de Local Storage</h4>
+      <p class="card-text" oncontextmenu="return false" #parrafoInfo>
+        * Vamos a realizar diferentes usos de las prop de windows.<br>
+        * Usamos Subject & Subscribe.<br>        
+        * Respuesta automatica al ejecutar placeholder .<br>        
+        * Mas abajo trataremos de ver Ubicacion actual en el mapa.<br>
+        * I am using fake server<a href='https://jsonplaceholder.typicode.com/' target='blank'>jsonplaceholder</a>to send data. 
+      </p> 
+    </div>
+
+    <!-- Buscador toggle-->
+    <div class="busqueda" #b_usqueda id="busqueda">
+      <div class='form-group searchGoogle' id='searchGoogle' #search_goog>
+        <i class="bi bi-google" id='logoGoogle' (click)="toggleClase()"></i>
+        <input type="text" class="form-control" placeholder='Buscar en Google' id='txtBuscador' name='txtBuscador'
+          #txt_Buscador>
+        <i class="fa fa-microphone" style="font-size: 1em; color: Tomato;"></i>
+      </div>
+    </div>
+    
+    <div class="card-body">
+        <div *ngIf='lstStorage.length;then veoUno else veoDos'>
+        </div> 
+        <ng-template #veoUno>
+          <p style="color: rgb(52, 206, 21);"><strong> Change this "hidePass" random to {{hidePass}}</strong></p>
+          <div class="d-flex">
+            <!-- dinamic Table con html-->
+            <table>
+              <thead>
+                <label class='mybtn' style='text-align:center; width:50%; color:blue'>
+                  List subject Placeholder + Storage
+                  <button type='button' class='btn btn-primary' (click)="ejecAuto()">Auto</button>
+                </label>
+              </thead>
+              <tbody id="tbl_auto" #tbl_auto>
+                <tr>
+                  <th>Nº</th>
+                  <th>Lastname</th>
+                </tr>
+                <tr *ngFor="let l of lstStorage; let i = index">
+                  <td>{{ i+1 }}</td>
+                  <td>{{ l | uppercase }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class='bg-dark'>
+              <label for="" style="font-size:14px; color:orange; text-align:center;">
+                Para respuesta automatica por cada tr<br>Ejecute boton Auto<br>
+                <span>Se agregara todo desde placeholder a lista local</span>
+              </label>
+              <input type="text" id="txt_auto" #txt_auto placeholder="automatic"/>
+              <button class="btn btn-success" id='btn_auto' #btn_auto>Thanks</button>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template #veoDos>
+          <p style="color: rgb(206, 21, 197);"> <strong> >>>Nothing to view. Change this "hidePass" to
+              {{hidePass}}</strong></p>
+        </ng-template>
+
+          <div class="card-header">
+            <p *ngIf="lstStorage2.length===0">nada en lista del storage</p>
+            <ul *ngFor="let l of lstStorage2; let i = index">
+              <li>ID= </li>
+              <!-- <li>ID= {{l.id}}--{{l.title.substr(1,4)}}</li> -->
+            </ul>
+          </div>
+          <h3 style='color:blue'>Local Storage - API in 100s -</h3>
+          <h4>{{this.title}}</h4>
+  
+          <div class="d-flex">
+            <button class="btn btn-secondary mybtn" type="button" (click)="guardarStorage()">Guardar Storage
+            </button>
+            <button class="btn btn-success mybtn" type="button" (click)="obtenerStorage()">Obtener Storage
+            </button>
+            <button class="btn btn-warning mybtn" type="button" (click)="removeStorage()">Remove
+            </button>
+            <button class="btn btn-primary mybtn" type="button" (click)="miUbicacion()">Ubicacion
+            </button>
+            <button class="btn btn-primary mybtn" (click)="addAlgo('algo')">Add Subj </button>
+            <button class="btn btn-success mybtn" (click)="getLista()"> Get Subj </button>
+            <button class="btn btn-warning mybtn" (click)="getFromPlaceholder()"> Get Placeh </button>
+            <button class="btn btn-warning mybtn" (click)="posicion()"> Get Pposicion </button>
+          </div>
+          
+      <!-- Local Storage -->
+      <div class="container d-grid">
+
+        <p style='font-size:20px; color:red'> <a href="http://#parrafoInfo">#parrafoInfo</a></p>
+
+        <canvas id="canvas"></canvas> 
+
+        <!-- mostrar tabla dinamica con Js-->
+        <div class='flex-container'>  
+          <mat-card class="example-card">      
+            <label for="">Mostrar local Storage</label>     
+            <div class="table" id='demoTabla'>              
+            </div>
+          </mat-card>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-danger" [hidden]="isViewCards" (click)="setRenders(dataColors.text)">
+            - {{dataColors.text}} -
+          </button>
+          <button class="btn btn-success" [hidden]="!isViewCards" (click)="setRenders(dataColors.text)">
+            - {{dataColors.text}} -
+          </button>
+        </div>
+        <!-- local storage list -->
+
+        <div [ngStyle]="{ color: isViewCards ? 'blue' : 'orange', border: isViewCards? '1px solid blue': '1px solid red'}">
+            <h3 style="text-align: center; color:rgb(16, 128, 128)">Local Storage </h3>
+            <p id="texto_render" #texto_render>
+              IsViewCards = {{isViewCards}} ,<i>{{dataColors.text}}</i>
+            </p>
+          <!-- progress para upload image -->
+          <!-- progress-bar 
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                      [style.width]="(uploadPercent | async) + '%'">
+                      </div>
+                    </div>
+                        ver en ts   -->
+
+          <!-- Form Renderer -->         
+
+            <!--color #198754 == success; #dc3545== danger-->
+
+            <div class="view" *ngIf="isViewCards;else parrafoOculto">
+              <div class="flex-container">
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>FORM</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <pre style="border:2px solid green">
+                      <mat-label for="">DATOS del form</mat-label>
+                      {{taskForm.value | json}};
+                    </pre>
+                    <hr>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+
+            <ng-template #parrafoOculto>
+              <pre style="border:2px solid green">
+                <mat-label for="">DATOS del form</mat-label>
+                {{taskForm.value | json}};
+              </pre>
+              <hr>
+              <mat-card-content>
+                <form [formGroup]='taskForm' (ngSubmit)="onSubmitTask()">
+                  <!-- <form #taskForm="ngForm" (ngSubmit)=onSubmitTask()"onCreatePost(taskForm.value)"> -->
+                
+                 <!--  <input type="text" name="txt" value="Hello" 
+                    onchange="myFunction(this.value)"> -->
+
+                   <div class="form-group" title="Name">
+                      <!-- Name -->
+                      <!-- <mat-form-field appearance='fill' title="Name"> -->
+                      <mat-label class="form-label">Enter your name: </mat-label>
+                      <input matInput type="text" 
+                        class="form-control" 
+                        id="name" name="name"
+                        placeholder="Name" 
+                        formControlName="name" 
+                        required max-length=10 minlength="3">
+                      <mat-icon matSuffix>alarm</mat-icon>
+                      <!-- </mat-form-field> -->
+                    <mat-error *ngIf="taskForm.controls.name.touched &&
+                                              taskForm.controls.name.hasError('required') ||
+                                              taskForm.controls.name.hasError('maxlength') || 
+                                              taskForm.controls.name.hasError('minlength')">
+                      Please insert a name between 3- 10 characters
+                    </mat-error>
+                    
+                    <mat-error>
+                      Name - {{ getError('name')}}
+                    </mat-error>
+
+                    <div class="invalid-data" *ngIf="!taskForm.get('name')?.valid && taskForm.get('name')?.touched">
+                      <span *ngIf="taskForm.get('name')?.errors?.['required']"> Must be Name </span>
+                      <span *ngIf="taskForm.get('name')?.errors?.['minLength(4)']"> Must be longer than 4 characters. </span>
+                      <span *ngIf="taskForm.get('name')?.errors?.['maxLength(20)']"> Must be shorter than 20 characters. </span>
+                    </div>
+                  </div>
+
+                  <!-- password -->
+                  <!-- <mat-form-field title="Password" appearance="fill" > -->
+                    <div class="form-group" title="e-mail">
+                    <label for='password'>Enter your password</label>
+                    <input matInput [type]="hidePass ? 'password' : 'text'" 
+                       class='form-control' id="password" name="password"
+                       formControlName="password" required>
+                      <button mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hidePass">
+                        <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}} </mat-icon>
+                      </button>
+                  <!-- </mat-form-field> -->
+                </div>
+                  <!-- <mat-error *ngIf="taskForm.controls.password.hasError('required') || 
+                      taskForm.controls.password.hasError('minlength')">
+                        Please insert a password longer 5 characters
+                    </mat-error> -->
+                    <mat-error>
+                      Password - {{ getError('password')}}
+                    </mat-error>
+
+                  <!-- email -->
+                  <!-- <mat-form-field title="e-mail" appearance="fill"> -->
+                  <div class="form-group" title="e-mail">
+                    <label for="email">e-mail</label>
+                    <input matInput type="email" class="form-control" id="email" name="email"
+                      formControlName="email" required placeholder="Ingrese su email">
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <small id="nombreHelp" class="form-text text-muted">
+                      No mostraremos tu email.
+                    </small>
+                  <!-- </mat-form-field> -->
+                </div>
+                  <mat-error>
+                    Emails - {{ getError('email')}}
+                  </mat-error>
+
+                  <!--  Reactivo comment -->
+                  <div class="form-group">
+                    <label for="name" class="form-label">Coment<i class="fa fa-location-arrow"></i></label>
+                    <input type="text" class="form-control" formControlName='comment' required placeholder="comment" name="comment"
+                    title="ingrese su nombre">
+                    <div class="invalid-data" *ngIf="!taskForm.get('comment')?.valid && taskForm.get('comment')?.touched">
+                      <span *ngIf="taskForm.get('comment')?.errors?.['required']"> Must be comment </span>
+                      <span *ngIf="taskForm.get('comment')?.errors?.['minlength(8)']"> Must be longer than 8 characters. </span>
+                      <span *ngIf="taskForm.get('comment')?.errors?.['maxLength(25)']"> Must be shorter than 25 characters. </span>
+                    </div>
+
+                    <label for="comment">comment</label>
+                    <input type="text" 
+                        id="comment" class="form-control" 
+                        formControlName="comment" required 
+                        title="es comment" placeholder="React between lengt 25-8 characters">
+                  </div>
+                  <div *ngIf="taskForm.get('comment')?.invalid && (taskForm.get('comment')?.dirty 
+                          || taskForm.get('comment')?.touched)" 
+                          class="alert alert-danger">
+
+                    <div *ngIf="taskForm.get('comment')?.errors?.required">
+                      comment is required.
+                    </div>
+                    <div *ngIf="taskForm.get('comment')?.errors?.maxLength" class="ng-pristine">
+                      comment must be at longer 25 characters long.
+                    </div>
+                    <div *ngIf="taskForm.get('comment')?.errors?.minLength" class="ng-pristine">
+                      comment must be at shortest 8 characters long.
+                    </div>
+                  </div>
+                  <mat-error>
+                    Comment - {{ getError('comment')}}
+                  </mat-error>
+                  <!-- //////////////// -->
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity" class="col-form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="col-form-label">State</label>
+                        <select id="inputState" class="form-control">
+                            <option>Choose</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip" class="col-form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip">
+                    </div>
+                  </div>
+                  <!-- *********************************** -->
+                  <div class="d-grid gap-2"><button mat-raised-button color="accent" 
+                      [disabled]='!taskForm.valid'>
+                      <mat-icon>save_alt</mat-icon>
+                      SUBMIT
+                    </button>
+                  </div>              
+                 
+                </form>
+              </mat-card-content>
+            </ng-template>
+          
+          <!-- <div class="myLocal" style='border:2px dotted #05c55c'>class="myLocal" style='border:2px dotted #05c55c'> -->
+            <h3>Add Task</h3>
+            <label for="nameTask">Name</label>
+            <input type="text" id="nameTask" #nameTask placeholder="Name">
+        
+            <label for="commentTask">Commentarios</label>
+            <textarea name="commentTask" id="commentTask" #commentTask class="textAre"></textarea>
+        
+            <button class="btn btn-primary mybtn" type="button" (click)="addTask(nameTask,commentTask)" style="margin-left: 10px;">
+              <i class="fa fa-child">Add Task</i>
+            </button>
+          <!-- </div> -->
+
+            <!-- // la clase container deja mas chico el div -->
+          <div class="myLocal"  style="background-color:#f1f1f1; border:2px dotted #05c55c">
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            <span class="psw">Forgot <a routerLink='/'>password?</a></span>
+            <button type="button" class="btn cancelbtn">Cancel</button>
+          </div>
+
+        </div><!-- termina render form -->
+
+        <!-- mapa -->
+        <div id="ubicacion">
+          Tus coordenadas aparecerán aquí
+        </div>
+        <div id="map">
+          <p></p>
+          Tu mapa
+          <input type="text" id="map2">
+        </div>
+
+        <img src="assets/images/Vacuna_Contacto.png" alt="vacuna">
+      </div>
+
+    </div> <!-- Cierra Cardbody -->
   </div>

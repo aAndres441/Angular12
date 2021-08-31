@@ -31,14 +31,12 @@ export class FicheroComponent implements OnInit {
 
 
   links: Link[] = [
-    { name: 'Alabama', viewName: 'Alabama', rating: 1 },
-    { name: 'Alabama', viewName: 'Alabama', rating: 1 },
-    { name: 'Alabama', viewName: 'Alabama', rating: 1 },
+    { name: 'Flores', viewName: 'Flores', rating: 1 },
+    { name: 'Rocha', viewName: 'Rocha', rating: 4 },
+    { name: 'Capurro', viewName: 'Capurro', rating: 7 },
     { name: 'California', viewName: 'AlaCaliforniabama', rating: 31 },
     { name: 'Minnesota', viewName: 'Minnesota', rating: 21 },
     { name: 'Washington', viewName: 'Washington', rating: 33 },
-    { name: 'New York', viewName: 'New York', rating: 8 },
-    { name: 'Florida', viewName: 'Florida', rating: 5 },
     { name: 'Hawaii', viewName: 'Hawaii', rating: 24 }
   ];
 
@@ -59,7 +57,6 @@ export class FicheroComponent implements OnInit {
       text: 'my gif',
       url: this.img1
     };
-    console.log(this.myImagen);
 
   }
 
@@ -94,7 +91,6 @@ export class FicheroComponent implements OnInit {
       eltext.style.color = 'white';
     }
   }
-
 
   /* Render 2 */
   toggleRenderer2() {

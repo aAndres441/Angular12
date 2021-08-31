@@ -8,11 +8,11 @@ import { UsuarioComponent } from './usuario/usuario.component';
 const routes: Routes = [
   {
     path: '',
-    children:[
+    children:[      
+      {path:'listado',component:ListadoComponent},
       {path:'editar',component:EditarComponent},
       {path:'login',component:LoginComponent},
       {path:'usuario',component:UsuarioComponent},
-      {path:'listado',component:ListadoComponent},
       {path:'**',redirectTo:'login'}
     ]
   }
