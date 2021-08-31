@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+*Incorporamos login y form  reactivo FormBuilder, con Material, mensajes de errores. 
+*canvas, progress bar, fondos  con imagenes todo en private /ususario/listado.
+*Tambien guards, posicion mouse.
+*@view child con Renderer2, ElementRef.
+*JSON.stringify, 
+*JSON.parse(list)
+*localStorage.setItem()
+*Geolocation: window.location, window.navigator.geolocation.getCurrentPosition
