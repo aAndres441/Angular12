@@ -270,8 +270,7 @@ export class ListadoComponent implements OnInit {
 
       document.getElementById('demoTabla')!.innerHTML = tabla;
 
-    }else{
-      alert("Error, no hay elementos");
+    }else{     
       let tabla2="<table><thead><tr><th>"+'Nada'+"</th></tr></thead><tbody></tbody></table>";
       document.getElementById('demoTabla')!.innerHTML = tabla2;
     }
@@ -303,6 +302,8 @@ export class ListadoComponent implements OnInit {
     try {
       localStorage.removeItem(this.key);
       this.lstGuardar.splice;
+      this.lstStorage=[];
+      this.creaTabla(this.lstStorage);
     }
     catch (e) {
       console.log('removeStorage: Error removing key [' +
