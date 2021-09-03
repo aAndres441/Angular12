@@ -271,7 +271,7 @@ export class ListadoComponent implements OnInit {
       document.getElementById('demoTabla')!.innerHTML = tabla;
 
     }else{     
-      let tabla2="<table><thead><tr><th>"+'Nada'+"</th></tr></thead><tbody></tbody></table>";
+      let tabla2="<table><thead><tr><th>"+'Nada en lstStorage'+"</th></tr></thead><tbody></tbody></table>";
       document.getElementById('demoTabla')!.innerHTML = tabla2;
     }
 
