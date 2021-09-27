@@ -1,3 +1,13 @@
+/**
+ * @title configuro express e instalo Nodemon
+ * Estamos usando express
+ * Instalamos modulo Nodemon solo para desarrollo 
+ * npm i nodemon -D, para no reiniciar servidor cada vez
+ * configure star en package.json para iniciar como prueba con el comando myDev desde actual
+ * npm run myDev
+ */
+
+
 const express = require('express');
 const cors = require('cors');
 const app = express();

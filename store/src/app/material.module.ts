@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 const MODULES = [
   MatDividerModule,
@@ -26,7 +27,8 @@ const MODULES = [
   MatCardModule,
   MatSelectModule,
   MatRadioModule,
-  MatTableModule
+  MatTableModule,
+  MatProgressBarModule
 ]
 
 @NgModule({

@@ -1,3 +1,4 @@
+
 import { ThrowStmt } from '@angular/compiler';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, MaxValidator, Validators } from '@angular/forms';
@@ -6,34 +7,55 @@ import { map, tap } from 'rxjs/operators';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 /**
- * @title mi Interface va arriba 
+ * @title Multiples funciones ()=>{Como...}
+ * LocalStorage, Placeoholder, express
+ * Servicios con Observable, Subscription 
+ * Class & Intderface Tasks ( Interface va arriba )
+ * Formulario reactivo
+ * Respuesta automatica
+ * posicionCUrsor() { fromEvent(document, 'click'); //evento del buscador
+ * this.elemRender.nativeElement;
+      this.renderer2.addClass(asColors,'claseParaRender');
+ * Geolocalizacion
  */
-class Task { 
-  id=0;
-  lastId = 0;
+class Task {   
+  id = 0;
+  lastId=0;
   nameTask: null;
   commentTask: null;
-  email:null;
-  tasks:any=[];
+ // email:null='';
+  //tasks:any=[];
+  gender='';
 
-  constructor(name:any, texto:any){
+  constructor(name:any, comment:any){
     /* this.id = this.id++; */
+    this.id =this.lastId++;
+    /*this.lastId = this.id++ */
     this.nameTask = name;
-    this.commentTask= texto
+    this.commentTask= comment;
+    this.gender = this.response_gender[this.randomId()];
+
+    this.tostring(); 
   }
   add(){
-    this.lastId++;
-    this.tasks.push({
-      id: this.lastId,
-      comentario: this.commentTask
-    });
+    /* this.lastId++;*/
+    this.commentTask = this.commentTask
+    //this.tasks.push({ });
     console.log('ESELENTE');
-    this.tostring();
-    
+    this.tostring();    
   }
   tostring() {
-          console.log(this.tasks[0].comentario);
+          console.log('Commentario del tasks: ' , this.commentTask,
+            '/n', 'Gender ', this.gender);
   }
+  randomId(){
+    return Math.floor(Math.random() * (3 - 0)) + 0; // Retorna un entero aleatorio entre min (0 incluido) y max (3 excluido)
+  }
+   private response_gender : any = {
+    0: 'Hombre',
+    1: 'Mujer',
+    2: 'Otro'
+  };
   
 }
 /* *  termina CLASS  ******** */
@@ -54,9 +76,7 @@ interface AnInterface{
 export class ListadoComponent implements OnInit {
 
   //para servicio muestraMiUbicacion
-  lstStorage:string[]=[];
-  lstStorage2:any[]=[];
-  listaStorage:[]=[];
+  lstStorage:any[]=[];
 
   datosTabla: Observable<any[]> = new Observable();
   private subscript: Subscription = new Subscription;
@@ -117,9 +137,9 @@ export class ListadoComponent implements OnInit {
 
   /* Guardara en Local Storage esta lista */
   lstGuardar = [
-    { name: 'Martin', lastname: 'kerbell',age: 21 },
-    { name: 'Esteban', lastname: 'Quito', age: 341 },
-    { name: 'Ana', lastname: 'Carolina', age: 12 }
+    { Taskname: 'Martin', comement: 'kerbell', gender:'M',ageID: 21 },
+    { Taskname: 'Esteban', comement: 'Quito', gender:'F', ageID: 341 },
+    { Taskname: 'Ana', comement: 'Carolina', gender:'M', ageID: 12 }
   ];
 
   tasks:Task[] = [
@@ -135,8 +155,8 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit(): void {
     
-/* Muestra pos cursor, una al inicio y otra al hacer el primer click */
-    this.checkCursor1();
+      /* Muestra pos cursor, una al inicio y otra al hacer el primer click */
+   // this.checkCursor1();
 
     this.submitted = false;
     this.initTaskForm();
@@ -169,8 +189,8 @@ export class ListadoComponent implements OnInit {
 
   /* muestra desde storage */
   obtenerStorage() {
-    let list = localStorage.getItem(this.key);   
-    
+    let list = localStorage.getItem(this.key);  
+console.log('-<*******',list);
     if (list === null) {
       return alert('null lst');
     } else if (typeof (list) === 'number') {
@@ -185,7 +205,7 @@ export class ListadoComponent implements OnInit {
       let res= JSON.parse(list);
 
       this.creaTabla(res); 
-      
+      /* 
       for (let i = 0; i < res.length; i++) {
       //convierto a Task//{ nameTask: 'Rocha', texto: 'Rocha', id: 19 }
         let unTask:Task = new Task(res[i].name,res[i].lastname);
@@ -193,16 +213,15 @@ export class ListadoComponent implements OnInit {
         list+=(JSON.stringify(unTask));
         //el service lo guarda en una lista que me devueve subscribe al final
         this.addAlgo(res[i].name);
-        this.addAlgo(res[i].lastname);
-      }
+      } */
 
      /*  for (let i = 0; i < list.length; i++) {
         this.addAlgo(list[i]);
       } */
       this.subscript = this.servicioUsu.onChangeLista
         .subscribe((p:any[])=>{
-        this.lstStorage=p;
-        
+        this.lstStorage=p;   
+        //this.creaTabla(this.lstStorage);      
      })    
       
 
@@ -237,6 +256,7 @@ export class ListadoComponent implements OnInit {
       
   }
 
+  /* ******  Crea TAbla Dinamica *******/
   creaTabla(lst: any) {
     if (lst.length > 0 ) {
        /* let json = JSON.parse(lst) */ //todos los datos del string
@@ -414,29 +434,42 @@ export class ListadoComponent implements OnInit {
   addTask(name:any,comment:any){  
     let names = name.value;  
     let commes = comment.value;  
+    console.log('NAMES',names, 'Comentario', commes);
 
-    console.log('NAMES',names, 'COMM', commes);
-    
+    /* aca abajo  utilizariae valor del DOM*/
     let nameTask=document.getElementById("nameTask");
     let commentTask=document.getElementById('commentTask');   
-
-    /* creamos un task con incremental id*/
-    let tsk = new Task(names,commes);
-    /* let tsk = new Task(nameTask,commentTask); */
-    /* tsk.id = this.lastId++; */
-    tsk.id = tsk.lastId++;
-    console.log('JSON', JSON.stringify(tsk));
     
-    tsk.add();
-   /*  tsk.texto = nameTask?.value; */
-   //console.log(JSON.parse(tsk));
+    let tsk = new Task(names,commes);
+    /* creamos un task con incremental id*/
+     tsk.id = this.lastId++;
+
+    //localStorage.setItem(this.key, JSON.stringify(tsk));
+    let list = localStorage.getItem(this.key);  
+    list+=(JSON.stringify(tsk.nameTask));
+    /*      /* 
+      for (let i = 0; i < res.length; i++) {
+      //convierto a Task//{ nameTask: 'Rocha', texto: 'Rocha', id: 19 }
+        let unTask:Task = new Task(res[i].name,res[i].lastname);
+        console.log(i,'-',unTask, ', unTask');
+        list+=(JSON.stringify(unTask));
+        //el service lo guarda en una lista que me devueve subscribe al final
+        this.addAlgo(res[i].name);
+      } */
+/*   list+=(JSON.stringify(unTask));
+let list = localStorage.getItem(this.key); for (let i = 0; i < list.length; i++) {
+        this.addAlgo(list[i]);
+      } */
+     /*  for (let i = 0; i < list.length; i++) {
+        this.addAlgo(list[i]);
+      } */ 
+    
+    //el service lo guarda en una lista que me devueve subscribe al final
+    this.addAlgo(names);
+    //tsk.add();
    console.log('JSON', JSON.stringify(tsk));
    console.log(tsk);
    
-    /* if(nameTask!.onmouseenter=null){
-      nameTask?.setAttribute('color','red') 
-      console.log('COLOR',nameTask?.getAttribute('color'));
-    } */
     
   }
 
@@ -521,8 +554,8 @@ export class ListadoComponent implements OnInit {
 
   miUbicacion(){
       //document.getElementById('map2')!.setAttribute('color','red');
-    let localtexto = document.getElementById('localtext');
     const elDiv = document.getElementById("map")!;
+    const map2 = document.getElementById("map2")!;
     console.log('Div Map = x ', elDiv);
 
     console.log('Widows= ', window);
@@ -533,9 +566,11 @@ export class ListadoComponent implements OnInit {
     if (navigator.geolocation) {
       /* navigator.geolocation.getCurrentPosition(this.showPosition); */
       console.log('Ubicacion ' , navigator.geolocation.getCurrentPosition);
-      
+      map2.setAttribute('value',"ya vaaa!");
     } else {
+      console.log('Non supported ');
       elDiv.innerHTML = "Geolocation is not supported by this browser.";
+      map2.setAttribute('value',"Geolocation is not supported by this browser.");
     }
   }
   /*  showPosition(position) {
@@ -579,7 +614,8 @@ export class ListadoComponent implements OnInit {
    });
 
   }
- posicion(){
+ /* Posicion Cursor */
+ posicionCUrsor() {
   const clicks = fromEvent(document, 'click'); //evento del buscador
   const posicion = clicks.pipe(
     tap((ev) =>{
@@ -588,25 +624,11 @@ export class ListadoComponent implements OnInit {
   ()=>console.log('Completado')
   )
   );//termina pipe
-  posicion.subscribe((pos)=>{console.log('posicion',pos);
+  posicion.subscribe((pos)=>{
+    console.log('posicion',pos);
   })
  }
 
-  /* Posicion Cursor */
-  posicionCUrsor() {
-    /* posicion de click */
-    const clicks = fromEvent(document, 'click');
-    const posicion = clicks.pipe(
-      tap((ev) => {
-        console.log('Procesado ', ev)
-      }, err => console.log(err),
-        () => console.log('Completado')
-      )
-    );//termina pipe
-    posicion.subscribe((pos) => {
-      console.log('posicion', pos);
-    })    
-  }
 
   checkCursor1(){ 
     document.addEventListener("mouseover", (evt) => {

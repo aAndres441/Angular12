@@ -1,0 +1,96 @@
+.container{
+    display:flex;
+    justify-content:center;
+}
+
+.container>a{
+    color:black;
+}
+
+/* Card imagen */
+.example-card {
+   /*  max-width: 600px; */
+    /* align-content: center;
+    justify-content: center; */
+        margin: auto;
+  }
+  
+img{
+    display:block;
+    margin: 0 auto;
+    /* float: right; */
+    border-radius:50%;
+    object-fit: cover;
+    /* overflow: auto;  zoom: 1;  */
+    /* max-width:clearfix; */
+    height: auto; 
+    max-width: 400px;
+    
+    border-bottom: 3px solid brown;
+  }
+
+ 
+  /* Full-width inputs */
+input[type=text], input[type=password], input[type=range]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  .mybtn{
+    background-color: rgba(105, 190, 72, 0.473);
+    color: rgb(44, 34, 34);
+    padding: 5px 10px;
+    margin: 13px 5px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    height: 10%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+    text-shadow: var(--myText-shadow);
+    background-color: green;
+  }
+  .d-flex > button{
+    /* display: flex;
+    flex-wrap: column; */
+    margin-left: 1px;
+    text-shadow: var(--myText-shadow);
+  }
+  #cartel{
+      max-width:40%; 
+      transform: translateY(60px);
+      border-radius:0%;
+  }
+  .range{
+  background-color: #f70202;
+}
+
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 48px;
+  width: 24px;
+  
+  font-size: 54px;
+  }
+
+  @media screen and (max-width: 300px) {
+    img{
+        
+        border-radius:20%;
+        object-fit: cover;
+        /* overflow: auto;  zoom: 1;  */
+        /* max-width:clearfix; */
+       /*  height: auto; 
+        max-width: 300px; */
+      }
+  }

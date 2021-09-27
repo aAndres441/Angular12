@@ -23,7 +23,7 @@
 
   .textAre{
     /*box-sizing: border-box;  */
-    width: 80%; /* respecto al padre , restando padding del padre*/
+    width: 80%; /* 80% respecto al padre , restando padding del padre*/
     /* resize: none; */ /* no cambia el tamaño */
     font-size: 1.5em; // respecto a proporcion de su padre
      display: inline-block;
@@ -259,6 +259,7 @@ display:inline-flex;
   .textAre{
     width:100%; /* respecto al padre , restando padding del padre*/   
     border-top: 1px solid #05ff05;
+    color:red;
   }
   span{
      text-shadow: var(--myText-shadow);
@@ -285,6 +286,10 @@ header ul li a{
 /*  #sidebar-wrapper {
   margin-left: 0; 
 } */
+.textAre{
+  width:100%; /* respecto al padre , restando padding del padre*/   
+  color:rgb(162, 15, 247);
+  }
 }
 @media screen and (max-width: 867px) {
 
@@ -508,6 +513,14 @@ table {
   box-shadow: -1px 3px 66px 0px rgba(0,0,0,0.75);
   border: 1px solid red;
   text-align:center;
+}
+
+.tazk{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  
+flex-direction: column;
 }
 
 
